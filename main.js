@@ -12,8 +12,14 @@ function addLikeCallback(e){
   mimicServerCall()
     .then(function(serverMessage){
       console.log(serverMessage)
-      heart.innerHTML = FULL_HEART;
-      heart.style.color = 'red';
+      if (heart.innerHTML == FULL_HEART){
+        heart.innerHTML = EMPTY_HEART;
+        heart.style.color = '';
+      }
+      else {
+        heart.innerHTML = FULL_HEART;
+        heart.style.color = 'red';
+      }
       errorModal.setAttribute('class', 'hidden');
     })
     .catch(function(error){
