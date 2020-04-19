@@ -22,6 +22,7 @@ function addLikeCallback(e){
 }
 
 document.addEventListener('DOMContentLoaded', function(){  
+  document.getElementById('modal').style.display = 'none';
   const likeBtns = document.querySelectorAll('span.like-glyph');
   for(const btn of likeBtns){
     btn.addEventListener('click', addLikeCallback);
