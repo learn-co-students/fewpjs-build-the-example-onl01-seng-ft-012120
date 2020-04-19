@@ -1,7 +1,7 @@
 // Defining text characters for the empty and full hearts for you to use later.
 const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
-document.getElementById('modal').setAttribute('class', 'hidden');
+hideModal();
 
 // Your JavaScript code goes here!
 
@@ -20,12 +20,18 @@ function addLikeCallback(e){
         heart.innerHTML = FULL_HEART;
         heart.style.color = 'red';
       }
-      errorModal.setAttribute('class', 'hidden');
     })
     .catch(function(error){
       console.log(error)
+      errorModal.innerText = error;
       errorModal.removeAttribute('class');
+      setTimeout(hideModal, 5000)
     })
+}
+
+function hideModal(){
+  const errorModal = document.getElementById('modal');
+  errorModal.setAttribute('class', 'hidden');
 }
 
 document.addEventListener('DOMContentLoaded', function(){  
