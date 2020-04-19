@@ -4,7 +4,29 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 
+function addLikeCallback(e){
+  let heart = e.target;
+  const errorModal = document.getElementById('modal');
+  console.log("Liked!");
+  mimicServerCall()
+    .then(function(serverMessage){
+      console.log(serverMessage)
+      heart.innerHTML = FULL_HEART;
+      heart.style.color = 'red';
+      errorModal.style.display = 'none';
+    })
+    .catch(function(error){
+      console.log(error)
+      errorModal.style.display = '';
+    })
+}
 
+document.addEventListener('DOMContentLoaded', function(){  
+  const likeBtns = document.querySelectorAll('span.like-glyph');
+  for(const btn of likeBtns){
+    btn.addEventListener('click', addLikeCallback);
+  };
+})
 
 
 //------------------------------------------------------------------------------
