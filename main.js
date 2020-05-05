@@ -3,8 +3,21 @@ const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
+let error = document.getElementById("modal")
+error.setAttribute("class", "hidden")
 
-
+document.querySelectorAll("ul").forEach((element) => {
+  element.addEventListener('click', (e) => {
+    if (e.currentTarget.innerText == `Like! ${EMPTY_HEART}`) {
+    e.currentTarget.innerHTML =  `<li class="like">Like! <span class="like-glyph">${FULL_HEART}</span></li>`
+  } else {
+    e.currentTarget.innerHTML = `<li class="like">Like! <span class="like-glyph">${EMPTY_HEART}</span></li>`
+  }
+  console.log(e.currentTarget)
+  
+  
+});
+});
 
 
 //------------------------------------------------------------------------------
